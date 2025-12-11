@@ -1,5 +1,7 @@
 package com.ljw;
 
+import com.ljw.domain.article.Article;
+
 import javax.security.sasl.SaslClient;
 import java.util.Scanner;
 
@@ -9,13 +11,11 @@ public class Main {
     public static void main(String[] args) {
 
         Scanner sc = new Scanner(System.in);
-        int totalCount =0;
+        int lastId =0;
         while (true) {
             System.out.println("== 자바 게시판 시작 ==");
             System.out.print("명령)");
             String input = sc.nextLine();
-
-
 
             if(input.equals("/usr/article/write")) {
 
@@ -23,8 +23,13 @@ public class Main {
                 String title = sc.nextLine();
                 System.out.print("내용:");
                 String contents = sc.nextLine();
-                totalCount++;
-                System.out.printf("%d 번 게시물이 등록 되었습니다.\n",totalCount);
+                int id = ++lastId;
+
+                Article article = new Article();
+                article.id = id;
+                article.content = contents;
+                article.title = title;
+                System.out.println("생성된 게시물 객체:"+ article);
 
             } else if(input.equals("exit")) {
                 System.out.println("== 자바 게시판 종료 ==");
