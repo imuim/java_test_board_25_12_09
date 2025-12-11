@@ -29,7 +29,7 @@ public class Main {
                 article.id = id;
                 article.content = contents;
                 article.title = title;
-                System.out.println("생성된 게시물 객체:"+ article);
+                System.out.println("생성된 게시물 객체:"+ article.toString());
 
             } else if(input.equals("exit")) {
                 System.out.println("== 자바 게시판 종료 ==");
