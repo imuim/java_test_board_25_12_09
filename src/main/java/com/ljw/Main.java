@@ -7,18 +7,31 @@ import java.util.Scanner;
 // click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
     public static void main(String[] args) {
-        Scanner scanner = new Scanner(System.in);
+
+        Scanner sc = new Scanner(System.in);
+        int totalCount =0;
+        while (true) {
+            System.out.println("== 자바 게시판 시작 ==");
+            System.out.print("명령)");
+            String input = sc.nextLine();
 
 
-        while(true) {
-                System.out.println("==자바 게시판 시작==");
-                String cmd = scanner.nextLine();
-                if(cmd.equals("exit")) {
-                System.out.println("명령"+cmd);
-                System.out.println("==자바 게시판 종료==");
+
+            if(input.equals("/usr/article/write")) {
+
+                System.out.print("제목:");
+                String title = sc.nextLine();
+                System.out.print("내용:");
+                String contents = sc.nextLine();
+                totalCount++;
+                System.out.printf("%d 번 게시물이 등록 되었습니다.\n",totalCount);
+
+            } else if(input.equals("exit")) {
+                System.out.println("== 자바 게시판 종료 ==");
                 break;
-
-                }
+            } else {
+                System.out.println("잘못된 입력입니다.");
             }
         }
     }
+}
